@@ -3,7 +3,7 @@
 # build 
 clone
 ```
-git clone xxx
+git clone https://github.com/zone-1614/zone_cg_template.git xxx
 cd xxx
 git submodule update --init --recursive
 ```

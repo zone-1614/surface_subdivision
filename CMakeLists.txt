@@ -2,10 +2,13 @@
 
 # set c++ standard
 message(STATUS "set c++ standard")
+message(STATUS "set c++ standard")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # set binary output paths
+message(STATUS "set binary output path")
+set(PROJECT_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
 message(STATUS "set binary output path")
 set(PROJECT_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
@@ -13,6 +16,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 
 # set module path
+message(STATUS "set module path")
 message(STATUS "set module path")
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
 
@@ -24,16 +28,19 @@ set(PMP_BUILD_DOCS OFF)
 project ("surface_subdivision" LANGUAGES CXX)
 
 # set windows specific definition :)
+# set windows specific definition :)
 if(WIN32)
     add_definitions(-D_USE_MATH_DEFINES -DNOMINMAX)
 endif()
 
+# set up emscripten for generate html file
 # set up emscripten for generate html file
 if (EMSCRIPTEN)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -s ALLOW_MEMORY_GROWTH=1 -s USE_GLFW=3 -s WASM=0 -s USE_WEBGL2=1")
     set(CMAKE_EXECUTABLE_SUFFIX ".html")
 endif()
 
+message(STATUS "add submodule pmp-library")
 message(STATUS "add submodule pmp-library")
 add_subdirectory(external/pmp-library)
 
