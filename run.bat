@@ -1,0 +1,1 @@
+start ./bin/Debug/surface_subdivision.exe
