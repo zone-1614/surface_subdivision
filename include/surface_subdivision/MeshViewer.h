@@ -26,7 +26,7 @@ protected:
     virtual void process_imgui();
 private:
     int subdivision_times = 1;
-    int subdivision_type = 1;
+    int subdivision_type = 0;
     std::vector<std::string> models;
 
     bool show_notice_loop_subdivision = false;

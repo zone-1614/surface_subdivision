@@ -324,10 +324,12 @@ void MeshViewer::loop_subdivision() {
             e2 = new_mesh.add_vertex(edge_p[es_[2]]);
             e_opt[es_[2]] = e2;
         }
-        new_mesh.add_triangle(v0, e0, e1);
-        new_mesh.add_triangle(e0, v2, e2);
-        new_mesh.add_triangle(e0, e2, e1);
-        new_mesh.add_triangle(e1, e2, v1);
+
+        // split a triangle into four triangle
+        new_mesh.add_triangle(v0, e1, e0);
+        new_mesh.add_triangle(e1, v1, e2);
+        new_mesh.add_triangle(e0, e1, e2);
+        new_mesh.add_triangle(e0, e2, v2);
     }
     mesh_.assign(new_mesh);
 }
